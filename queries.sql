@@ -36,7 +36,7 @@ WHERE date_of_birth > '2022-1-1';
 SAVEPOINT point_1;
 UPDATE animals
 SET weight_kg = weight_kg * -1;
-ROLLBACK TO point_1;
+ROLLBACK point_1;
 UPDATE animals
 SET weight_kg = weight_kg * -1
 WHERE weight_kg < 0;
