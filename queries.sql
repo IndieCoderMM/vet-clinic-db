@@ -85,3 +85,65 @@ SELECT owners.full_name, COUNT(*) FROM owners
 JOIN animals ON animals.owner_id = owners.id
 GROUP BY owners.full_name ORDER BY COUNT(*) DESC
 LIMIT 1;
+
+-- Last animal seen by William 
+SELECT a.name, v.date_of_visit FROM visits v
+JOIN animals a ON v.animal_id = a.id
+JOIN vets b ON v.vet_id = b.id
+WHERE b.name = 'William Tatcher'
+ORDER BY v.date_of_visit DESC
+LIMIT 1;
+
+-- Count of animals seen by Stephanie
+SELECT COUNT(*) FROM visits v
+JOIN animals a ON v.animal_id = a.id
+JOIN vets b ON v.vet_id = b.id
+WHERE b.name = 'Stephanie Mendez';
+
+-- List of vets and specialities
+SELECT v.name, t.name FROM vets v
+LEFT JOIN specializations s ON v.id = s.vet_id
+LEFT JOIN species t ON t.id = s.species_id;
+
+-- Animals that visited Stephanie between Apr 1 and Aug 30, 2020
+SELECT a.name, j.date_of_visit FROM animals a
+JOIN visits j ON j.animal_id = a.id
+JOIN vets v ON j.vet_id = v.id
+WHERE v.name = 'Stephanie Mendez' AND 
+j.date_of_visit BETWEEN 'Apr 1, 2020' AND 'Aug 30, 2020';
+
+-- Animal having most visits 
+SELECT a.name, COUNT(*) FROM animals a
+JOIN visits j ON a.id = j.animal_id
+GROUP BY a.name 
+ORDER BY COUNT(*) DESC LIMIT 1;
+
+-- Maisy's first visit 
+SELECT a.name, j.date_of_visit FROM vets v
+JOIN visits j ON v.id = j.vet_id
+JOIN animals a ON a.id = j.animal_id
+WHERE v.name = 'Maisy Smith'
+ORDER BY j.date_of_visit
+LIMIT 1;
+
+-- Detail of most recent visit 
+SELECT j.date_of_visit, v.*, a.* FROM vets v
+JOIN visits j ON j.vet_id = v.id
+JOIN animals a ON j.animal_id = a.id
+ORDER BY j.date_of_visit DESC LIMIT 1;
+
+-- Visits of animals outside from specialization
+SELECT v.name, COUNT(*) FROM vets v
+JOIN visits j ON j.vet_id = v.id
+JOIN animals a ON j.animal_id = a.id
+LEFT JOIN specializations s ON s.vet_id = v.id
+WHERE s.species_id != a.species_id OR s.species_id IS NULL
+GROUP BY v.name;
+
+-- Most visited species to Maisy
+SELECT s.name, COUNT(*) FROM vets v
+JOIN visits j ON j.vet_id = v.id
+JOIN animals a ON j.animal_id = a.id
+JOIN species s ON a.species_id = s.id
+WHERE v.name = 'Maisy Smith'
+GROUP BY s.name ORDER BY COUNT(*) DESC LIMIT 1; 
