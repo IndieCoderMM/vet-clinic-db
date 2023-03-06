@@ -41,6 +41,11 @@
 - Gmail: hthant00chk@gmail.com
 - LinkedIn: [LinkedIn](https://linkedin.com/in/hthantoo)
 
+👨‍🚀 **Abel Seifu**
+
+- GitHub: [@abe1able](https://github.com/abe1able)
+- LinkedIn: [Abel-Seifu](https://linkedin.com/in/abel-seifu)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
