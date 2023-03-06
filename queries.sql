@@ -147,3 +147,7 @@ JOIN animals a ON j.animal_id = a.id
 JOIN species s ON a.species_id = s.id
 WHERE v.name = 'Maisy Smith'
 GROUP BY s.name ORDER BY COUNT(*) DESC LIMIT 1; 
+
+-- Performance analysis
+EXPLAIN ANALYZE SELECT COUNT(*) FROM visits where animal_id = 4;
+EXPLAIN ANALYZE SELECT * FROM visits where vet_id = 2;
