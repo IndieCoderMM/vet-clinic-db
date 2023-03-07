@@ -1,6 +1,7 @@
 <a name="readme-top"></a>
 ## 📗 Table of Contents
 - [🐶 Vel Clinic DB ](#-vel-clinic-db-)
+  - [📌 Shema Diagram](#-shema-diagram)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -12,11 +13,15 @@
   - [📝 License ](#-license-)
 
 
-
 # 🐶 Vel Clinic DB <a name="about-project"></a>
 
+**Vel Clinic DB** is a SQL database to store data for a clinic. It includes sample data and queries to explore and analyze the data.
 
-**Vel Clinic DB** is a SQL database to store data for a vet clinic.
+## 📌 Shema Diagram
+
+![Schema](vet_clinic_schema.png)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -27,8 +32,10 @@
 
 ### Key Features <a name="key-features"></a>
 
-- Table to store data (name, dob, escapes, neutered, weight)
-- Sample data & queries
+- Create tables to store data
+- **Join table** for many-to-many relationships
+- Queries for analytical questions
+- Improve performance with **indexing**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -52,8 +59,8 @@
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **Multiple tables**
-- [ ] **Add join table for visits**
+- [x] **Multiple tables**
+- [x] **Add join table for visits**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
